@@ -12,9 +12,9 @@ Kernel-only time, averaged over 10 trials after a warm-up launch.
 
 | Kernel | Avg time (ms) | Slowdown vs A |
 |---|---|---|
-| A (Uniform path) | <fill> | 1.00x |
-| B (Interleaved, idx % 2) | <fill> | <fill> |
-| C (Warp-aligned, warp_id % 2) | <fill> | <fill> |
+| A (Uniform path) | 2.02x | 1.00x |
+| B (Interleaved, idx % 2) | 3.20x | 1.00x |
+| C (Warp-aligned, warp_id % 2) | 1.23x | 0.23x |
 
 **Analysis:** In Kernel B, adjacent threads in each warp take different branches, so the
 hardware executes both paths one after another (serialization) and the warp pays for both.
